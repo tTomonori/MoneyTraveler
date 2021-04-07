@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{536C6EF5-F2F3-0E01-922E-C70D60907F10}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/resources/stage/data/standard.json">
+    <Files>
+      <File FileName="Assets/scripts/setting/SettingMain.cs" Line="142" Column="115" />
+      <File FileName="Assets/scripts/setting/CharaSettingMain.cs" Line="52" Column="1" />
+      <File FileName="Assets/resources/stage/data/standard.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MoneyTraveler" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="scripts" expanded="True">
+                <Node name="MyUnityFrameworks" expanded="True">
+                  <Node name="myFramework" expanded="True">
+                    <Node name="json" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="setting" expanded="True">
+                  <Node name="SettingMain.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="69d57e69-67df-464c-a6fe-f51dcadb3f57" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

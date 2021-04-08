@@ -1,9 +1,16 @@
 ﻿<Properties StartupConfiguration="{536C6EF5-F2F3-0E01-922E-C70D60907F10}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/resources/stage/data/standard.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/game/gameFeild/GameFeildFactory.cs">
     <Files>
-      <File FileName="Assets/scripts/setting/SettingMain.cs" Line="142" Column="115" />
-      <File FileName="Assets/scripts/setting/CharaSettingMain.cs" Line="52" Column="1" />
-      <File FileName="Assets/resources/stage/data/standard.json" Line="1" Column="1" />
+      <File FileName="Assets/resources/stage/data/standard.json" Line="4" Column="7" />
+      <File FileName="Assets/scripts/game/GameMain.cs" Line="20" Column="45" />
+      <File FileName="Assets/scripts/game/gameFeild/GameFeild.cs" Line="11" Column="75" />
+      <File FileName="Assets/scripts/game/gameFeild/GameFeildFactory.cs" Line="10" Column="54" />
+      <File FileName="Assets/scripts/game/gameFeild/GameMassFactory.cs" Line="44" Column="6" />
+      <File FileName="Assets/scripts/game/gameFeild/GameMass.cs" Line="5" Column="36" />
+      <File FileName="Assets/scripts/game/gameFeild/LandMass.cs" Line="19" Column="39" />
+      <File FileName="Assets/scripts/GameSetting.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/game/gameFeild/mass/EventMass.cs" Line="7" Column="30" />
+      <File FileName="Assets/scripts/game/gameFeild/mass/StartMass.cs" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,14 +18,18 @@
           <Node name="MoneyTraveler" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="scripts" expanded="True">
+                <Node name="game" expanded="True">
+                  <Node name="gameFeild" expanded="True">
+                    <Node name="mass" expanded="True" />
+                    <Node name="GameFeildFactory.cs" selected="True" />
+                  </Node>
+                </Node>
                 <Node name="MyUnityFrameworks" expanded="True">
                   <Node name="myFramework" expanded="True">
                     <Node name="json" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="setting" expanded="True">
-                  <Node name="SettingMain.cs" selected="True" />
-                </Node>
+                <Node name="setting" expanded="True" />
               </Node>
             </Node>
           </Node>

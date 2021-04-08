@@ -9,6 +9,7 @@ public class GameMain : MonoBehaviour {
     public Arg mArg;
     public GameSetting mSetting;
     public Arg mStageData;
+    public GameMaster mMaster;
     // Start is called before the first frame update
     void Start() {
         mArg = MySceneManager.getArg("game");
@@ -17,7 +18,14 @@ public class GameMain : MonoBehaviour {
         mFeeRate = mSetting.mFeeRate;
         mAcquisitionRate = mSetting.mAcqusitionRate;
 
-        GameFeildFactory.create(mStageData);
+        GameFeild tFeild = GameFeildFactory.create(mStageData);
+        List<PlayerStatus> tStatus = PlayerFactory.create(mSetting, tFeild, mStageData);
+        MySceneManager.openScene("playerStatus",null,(aScene)=> {
+            PlayerStatusMain tMain = GameObject.Find("playerStatusMain").GetComponent<PlayerStatusMain>();
+            tMain.initialize(tStatus);
+            mMaster = new GameMaster();
+            mMaster.start(tFeild, tStatus, tMain);
+        });
     }
 
     // Update is called once per frame

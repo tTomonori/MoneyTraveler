@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 
 public class PlayerStatusMain : MonoBehaviour {
+    //ステータスの表示欄(なしに指定したプレイヤの部分にはnullが入っている)
     public List<PlayerStatusDisplay> mDisplays;
     //表示場所
     public Vector2 getDisplayPosition(int aNumber) {
@@ -22,6 +23,13 @@ public class PlayerStatusMain : MonoBehaviour {
             tDisplay.position2D = getDisplayPosition(tStatus.mPlayerNumber - 1);
             tDisplay.positionZ = tStatus.mPlayerNumber;
             mDisplays.Add(tDisplay);
+        }
+    }
+    //情報更新
+    public void updateStatus(List<PlayerStatus> aStatus) {
+        foreach(PlayerStatus tStatus in aStatus) {
+            if (tStatus == null) continue;
+            mDisplays[tStatus.mPlayerNumber - 1].updateStatus(tStatus);
         }
     }
     //ターンの順番に並び替え

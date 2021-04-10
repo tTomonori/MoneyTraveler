@@ -37,7 +37,7 @@ static public class PlayerFactory {
             tStatus.mAssets = tStatus.mMoney;
 
             tStatus.mRank = 1;
-            tStatus.mOrbit = 0;
+            tStatus.mOrbit = 1;
             tStatus.mPlayerNumber = i + 1;
             //coma
             int tStartMassNumber = getStartMassNumber(aFeild, i + 1);

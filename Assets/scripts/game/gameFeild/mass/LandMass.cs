@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LandMass : GameMass {
+    static public int mMaxIncreaseLevel = 3;
     public int mOrner = 0;
     public int mIncreaseLevel = 0;
     public int mBaseValue = 0;
@@ -38,7 +40,7 @@ public class LandMass : GameMass {
             return tTotal;
         }
     }
-
+    //購入増資等の欄更新
     public void updateValueDisplay() {
         if (mOrner <= 0) {
             mSelling.gameObject.SetActive(true);
@@ -49,6 +51,36 @@ public class LandMass : GameMass {
             mSold.gameObject.SetActive(true);
             mIncreaseMesh.text = mIncreaseCost.ToString();
             mFeeMesh.text = mFeeCost.ToString();
+            if (mIncreaseLevel == mMaxIncreaseLevel) {
+                mIncreaseMesh.text = "MAX";
+            }
         }
+    }
+    public void changeOrner(PlayerStatus aStatus,Action aCallback) {
+        if (aStatus == null) {
+            mOrner = 0;
+            mMass.color = new Color(1, 1, 1, 1);
+            updateValueDisplay();
+            aCallback();
+            return;
+        }
+        mOrner = aStatus.mPlayerNumber;
+        mMass.color = aStatus.playerColor;
+        updateValueDisplay();
+        aCallback();
+    }
+    public void changeIncreaseLevel(int aLevel,Action aCallback) {
+        MySoundPlayer.playSe("increase", false);
+        mIncreaseLevel = aLevel;
+        updateValueDisplay();
+        mBuildingRenderer.sprite = Resources.Load<Sprite>("sprites/feild/mass/building" + aLevel.ToString());
+        mBuilding.scale2D = new Vector2(0, 0);
+        mBuilding.scaleTo(new Vector2(0.2f, 1.3f), 0.2f, () => {
+            mBuilding.scaleTo(new Vector2(1.3f, 0.6f), 0.2f, () => {
+                mBuilding.scaleTo(new Vector2(1, 1), 0.2f, () => {
+                    aCallback();
+                });
+            });
+        });
     }
 }

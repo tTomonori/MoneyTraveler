@@ -14,6 +14,7 @@ public class PlayerStatus {
     public int mPlayerNumber;
     public int mCurrentMassNumber;
     public PlayerComa mComa;
+    public bool mIsBankruptcy;
 
     public Color playerColor { get {
             if (mPlayerNumber == 1) return new Color(1, 0.1f, 0.1f, 1);
@@ -22,5 +23,12 @@ public class PlayerStatus {
             else if (mPlayerNumber == 4) return new Color(0, 1, 0, 1);
             return new Color(1, 1, 1, 1);
         }
+    }
+    /// <summary>
+    /// 破産していたらtrue
+    /// </summary>
+    /// <returns></returns>
+    public bool isEnd() {
+        return mIsBankruptcy;
     }
 }

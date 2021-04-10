@@ -24,6 +24,7 @@ public class GameMain : MonoBehaviour {
             PlayerStatusMain tMain = GameObject.Find("playerStatusMain").GetComponent<PlayerStatusMain>();
             tMain.initialize(tStatus);
             mMaster = new GameMaster();
+            mMaster.mCamera = GameObject.Find("gameMainCamera").GetComponent<GameMainCamera>();
             mMaster.start(tFeild, tStatus, tMain);
         });
     }

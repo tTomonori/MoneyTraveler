@@ -29,7 +29,7 @@ public class PlayerAi : CharaAi {
     public override void purchaseLand(PlayerStatus aMyStatus, LandMass aLand, GameMaster mMaster, Action<bool> aCallback) {
         MySceneManager.openScene("twoChoicesQuestion",
             new Arg(new Dictionary<string, object>() { { "text", aLand.mPurchaseCost.ToString() + "金で" + aLand.mNameMesh.text + "を\n購入しますか" } }),
-            null, (aArg)=> {
+            null, (aArg) => {
                 aCallback(aArg.get<bool>("answer"));
             });
     }
@@ -39,5 +39,24 @@ public class PlayerAi : CharaAi {
             null, (aArg) => {
                 aCallback(aArg.get<bool>("answer"));
             });
+    }
+    public override void soldLand(PlayerStatus aMyStatus, GameMaster mMaster, Action<LandMass> aCallback) {
+        mMaster.mCamera.mTarget = null;
+        Subject.addObserver(new Observer("playerAi", (aMessage) => {
+            switch (aMessage.name) {
+                case "gamePadDragged":
+                    Vector2 tVec = aMessage.getParameter<Vector2>("vector") / -10;
+                    mMaster.mCamera.move(tVec);
+                    break;
+                case "gamePadClicked":
+                    GameMass tMass = aMessage.getParameter<GameMass>("mass");
+                    if (!(tMass is LandMass)) break;
+                    LandMass tLand = (LandMass)tMass;
+                    if (tLand.mOwner != aMyStatus.mPlayerNumber) break;
+                    Subject.removeObserver("playerAi");
+                    aCallback(tLand);
+                    return;
+            }
+        }));
     }
 }

@@ -5,7 +5,7 @@ using System;
 
 public class LandMass : GameMass {
     static public int mMaxIncreaseLevel = 3;
-    public int mOrner = 0;
+    public int mOwner = 0;
     public int mIncreaseLevel = 0;
     public int mBaseValue = 0;
     public List<string> mAttributes;
@@ -27,7 +27,7 @@ public class LandMass : GameMass {
     }
 
     public int mPurchaseCost { get { return mBaseValue; } }
-    public int mFeeCost { get { return (int)(GameMain.mFeeRate * mBaseValue / 10 * Mathf.Pow(3, mIncreaseLevel)); } }
+    public int mFeeCost { get { return (int)(GameMain.mFeeRate * mBaseValue / 5 * Mathf.Pow(3, mIncreaseLevel))*20; } }
     public int mIncreaseCost { get { return getExpansionCost(mIncreaseLevel); } }
     public int mAcquisitionCost { get { return (int)(mTotalValue * GameMain.mAcquisitionRate); } }
     public int mSellCost { get { return (int)(mTotalValue * 0.8f); } }
@@ -42,7 +42,7 @@ public class LandMass : GameMass {
     }
     //購入増資等の欄更新
     public void updateValueDisplay() {
-        if (mOrner <= 0) {
+        if (mOwner <= 0) {
             mSelling.gameObject.SetActive(true);
             mSold.gameObject.SetActive(false);
             mPurchaseMesh.text = mPurchaseCost.ToString();
@@ -58,13 +58,13 @@ public class LandMass : GameMass {
     }
     public void changeOrner(PlayerStatus aStatus,Action aCallback) {
         if (aStatus == null) {
-            mOrner = 0;
+            mOwner = 0;
             mMass.color = new Color(1, 1, 1, 1);
             updateValueDisplay();
             aCallback();
             return;
         }
-        mOrner = aStatus.mPlayerNumber;
+        mOwner = aStatus.mPlayerNumber;
         mMass.color = aStatus.playerColor;
         updateValueDisplay();
         aCallback();

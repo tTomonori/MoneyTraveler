@@ -32,7 +32,7 @@ static public class GameEffector {
 
         CallbackSystem tSystem = new CallbackSystem();
         KinCoin tPrefab = Resources.Load<KinCoin>("prefabs/game/effect/coin");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 7; i++) {
             Action tCounter = tSystem.getCounter();
             MyBehaviour.setTimeoutToIns(0.1f * i, () => {
                 KinCoin tCoin = GameObject.Instantiate(tPrefab);

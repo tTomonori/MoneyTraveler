@@ -9,4 +9,5 @@ abstract public class CharaAi {
 
     abstract public void purchaseLand(PlayerStatus aMyStatus, LandMass aLand, GameMaster mMaster, Action<bool> aCallback);
     abstract public void increaseLand(PlayerStatus aMyStatus, LandMass aLand, GameMaster mMaster, Action<bool> aCallback);
+    abstract public void soldLand(PlayerStatus aMyStatus, GameMaster mMaster, Action<LandMass> aCallback);
 }

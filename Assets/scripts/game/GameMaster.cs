@@ -40,11 +40,16 @@ public class GameMaster {
         mTurnOrder = mTurnOrder.OrderBy(a => Guid.NewGuid()).ToList();
     }
     public void nextTurn() {
+        if (mTurnOrder.Count <= 1) {
+            //ゲーム終了
+            gameEnd();
+            return;
+        }
         mTurnNum = (mTurnNum + 1) % mTurnOrder.Count;
         while (mTurnOrder[mTurnNum].isEnd())
             mTurnNum = (mTurnNum + 1) % mTurnOrder.Count;
 
-        mTurnManager.startTurn(mTurnOrder[mTurnNum], this,()=> {
+        mTurnManager.startTurn(mTurnOrder[mTurnNum], this, () => {
             nextTurn();
         });
     }
@@ -74,12 +79,12 @@ public class GameMaster {
     }
     //プレイヤの物件,総資産更新
     public void updatePropertyValueStatus() {
-        foreach(PlayerStatus tStatus in mTurnOrder) {
+        foreach (PlayerStatus tStatus in mTurnOrder) {
             int tProperty = 0;
-            foreach(GameMass tMass in mFeild.mMassList) {
+            foreach (GameMass tMass in mFeild.mMassList) {
                 if (!(tMass is LandMass)) continue;
                 LandMass tLand = (LandMass)tMass;
-                if (tLand.mOrner != tStatus.mPlayerNumber) continue;
+                if (tLand.mOwner != tStatus.mPlayerNumber) continue;
                 tProperty += tLand.mTotalValue;
             }
             tStatus.mProperty = tProperty;
@@ -110,5 +115,16 @@ public class GameMaster {
                 else return new Vector3(1, 0, 0.2f);
         }
         throw new Exception("不正な配置 : " + aDup + " " + aOrd);
+    }
+    public void gameover(int aPlayerNumber, Action aCallback) {
+        //ターン順の配列から取り除く
+        mTurnOrder.Remove(mPlayerStatus[aPlayerNumber - 1]);
+        //コマを消す
+        mPlayerStatus[aPlayerNumber - 1].mComa.gameObject.SetActive(false);
+        aCallback();
+    }
+    //ゲーム終了
+    public void gameEnd() {
+        Debug.Log("finish");
     }
 }

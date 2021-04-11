@@ -30,4 +30,7 @@ public class GameMainCamera : MyBehaviour {
     public void shoot(MonoBehaviour aTarget) {
         this.worldPosition = aTarget.transform.position;
     }
+    public void move(Vector2 aVec) {
+        this.position += new Vector3(aVec.x, 0, aVec.y);
+    }
 }

@@ -6,8 +6,8 @@ using System;
 public partial class MassEventManager {
     public void stopLand(PlayerStatus aTurnPlayer, Action aCallback) {
         LandMass tLand = (LandMass)mMaster.mFeild.mMassList[aTurnPlayer.mCurrentMassNumber];
-        if (tLand.mOrner <= 0) stopFreeLand(aTurnPlayer, aCallback);
-        else if (tLand.mOrner == aTurnPlayer.mPlayerNumber) stopMyLand(aTurnPlayer, aCallback);
+        if (tLand.mOwner <= 0) stopFreeLand(aTurnPlayer, aCallback);
+        else if (tLand.mOwner == aTurnPlayer.mPlayerNumber) stopMyLand(aTurnPlayer, aCallback);
         else stopOtherLand(aTurnPlayer, aCallback);
     }
     //空き地に止まった
@@ -72,7 +72,7 @@ public partial class MassEventManager {
         LandMass tLand = (LandMass)mMaster.mFeild.mMassList[aTurnPlayer.mCurrentMassNumber];
         GameEffector.lostCoin(aTurnPlayer.mComa.position, (-tLand.mFeeCost).ToString(), () => {
             aTurnPlayer.mMoney -= tLand.mFeeCost;
-            PlayerStatus tStatus = mMaster.mPlayerStatus[tLand.mOrner - 1];
+            PlayerStatus tStatus = mMaster.mPlayerStatus[tLand.mOwner - 1];
             GameEffector.getCoin(tStatus.mComa.position, tLand.mFeeCost.ToString(), () => {
                 tStatus.mMoney += tLand.mFeeCost;
                 mMaster.updateStatus();

@@ -23,9 +23,11 @@ static public class PlayerFactory {
                     tStatus.mAi = new PlayerAi();
                     break;
                 case "solid":
+                    tStatus.mAi = new SolidAi();
+                    break;
                 case "carefully":
                 case "impulse":
-                    tStatus.mAi = new SolidAi();
+                    tStatus.mAi = new ImpulseAi();
                     break;
             }
             //chara

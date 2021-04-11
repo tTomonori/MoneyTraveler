@@ -29,7 +29,8 @@ public class SolidAi : CpuAi {
         foreach(GameMass tMass in aFeild.mMassList) {
             if (!(tMass is LandMass)) continue;
             LandMass tLand = (LandMass)tMass;
-            if (tLand.mOrner == aMyStatus.mPlayerNumber) continue;
+            if (tLand.mOwner == aMyStatus.mPlayerNumber) continue;
+            if (tLand.mOwner <= 0) continue;
             tTotalFee += tLand.mFeeCost;
             tTotalNum++;
         }

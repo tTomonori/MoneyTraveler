@@ -19,7 +19,7 @@ public abstract class CpuAi : CharaAi {
                 tCheapest = tLand;
                 continue;
             }
-            if (tCheapest.mTotalValue < tLand.mTotalValue) {
+            if (tCheapest.mTotalValue > tLand.mTotalValue) {
                 tCheapest = tLand;
             }
         }

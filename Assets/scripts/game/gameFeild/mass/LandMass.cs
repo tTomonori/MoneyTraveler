@@ -27,7 +27,7 @@ public class LandMass : GameMass {
     }
 
     public int mPurchaseCost { get { return mBaseValue; } }
-    public int mFeeCost { get { return (int)(GameMain.mFeeRate * mBaseValue / 5 * Mathf.Pow(3, mIncreaseLevel))*20; } }
+    public int mFeeCost { get { return (int)(GameMain.mFeeRate * mBaseValue / 5 * Mathf.Pow(3, mIncreaseLevel)); } }
     public int mIncreaseCost { get { return getExpansionCost(mIncreaseLevel); } }
     public int mAcquisitionCost { get { return (int)(mTotalValue * GameMain.mAcquisitionRate); } }
     public int mSellCost { get { return (int)(mTotalValue * 0.8f); } }

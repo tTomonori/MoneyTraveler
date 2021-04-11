@@ -13,7 +13,7 @@ public partial class MassEventManager {
     //物件に泥棒が侵入
     public void thiefInvades(PlayerStatus aTurnPlayer, Action aCallback) {
         int tMoney = (int)(aTurnPlayer.mProperty * UnityEngine.Random.Range(3f, 7f) / 100);
-        showEventBox("物件に泥棒が侵入\n+" + (-tMoney).ToString() + "金", () => {
+        showEventBox("物件に泥棒が侵入\n" + (-tMoney).ToString() + "金", () => {
             lostCoin(aTurnPlayer, tMoney, () => {
                 mMaster.updateStatus();
                 aCallback();

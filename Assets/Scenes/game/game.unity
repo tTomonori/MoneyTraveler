@@ -168,6 +168,7 @@ MonoBehaviour:
   mControllerType: 0
   mMaxTailLength: 100
   mThresholdDrag: 10
+  mCamera: {fileID: 0}
 --- !u!65 &146756046
 BoxCollider:
   m_ObjectHideFlags: 0

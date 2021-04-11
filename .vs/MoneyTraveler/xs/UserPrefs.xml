@@ -1,14 +1,18 @@
 ﻿<Properties StartupConfiguration="{536C6EF5-F2F3-0E01-922E-C70D60907F10}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/game/event/MassEventManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/resources/stage/data/standard.json">
     <Files>
       <File FileName="Assets/scripts/game/gameFeild/mass/LandMass.cs" Line="30" Column="112" />
-      <File FileName="Assets/scripts/game/EventSceneMain.cs" Line="18" Column="53" />
-      <File FileName="Assets/scripts/game/event/MassEventManager.cs" Line="63" Column="1" />
-      <File FileName="Assets/scripts/game/event/eventMassEventManager.cs" Line="25" Column="90" />
-      <File FileName="Assets/scripts/game/event/godMassEventManager.cs" Line="13" Column="69" />
-      <File FileName="Assets/scripts/game/event/batMassEventManager.cs" Line="15" Column="91" />
+      <File FileName="Assets/scripts/game/EventSceneMain.cs" Line="13" Column="1" />
+      <File FileName="Assets/scripts/game/event/MassEventManager.cs" Line="70" Column="21" />
+      <File FileName="Assets/scripts/game/event/eventMassEventManager.cs" Line="15" Column="36" />
+      <File FileName="Assets/scripts/game/event/godMassEventManager.cs" Line="15" Column="36" />
+      <File FileName="Assets/scripts/game/event/batMassEventManager.cs" Line="25" Column="36" />
       <File FileName="Assets/scripts/game/event/eventMassEventManager.cs" Line="25" Column="25" />
       <File FileName="Assets/scripts/game/event/landMassEventManager.cs" Line="29" Column="59" />
+      <File FileName="Assets/scripts/game/gameFeild/GameFeild.cs" Line="20" Column="61" />
+      <File FileName="Assets/scripts/game/gameFeild/GameFeildFactory.cs" Line="39" Column="68" />
+      <File FileName="Assets/scripts/game/GameMaster.cs" Line="23" Column="42" />
+      <File FileName="Assets/resources/stage/data/standard.json" Line="4" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,11 +27,10 @@
                   <Node name="charaAi" expanded="True" />
                   <Node name="dice" expanded="True" />
                   <Node name="effect" expanded="True" />
-                  <Node name="event" expanded="True">
-                    <Node name="MassEventManager.cs" selected="True" />
-                  </Node>
+                  <Node name="event" expanded="True" />
                   <Node name="gameFeild" expanded="True">
                     <Node name="mass" expanded="True" />
+                    <Node name="GameFeildFactory.cs" selected="True" />
                   </Node>
                   <Node name="player" expanded="True" />
                 </Node>

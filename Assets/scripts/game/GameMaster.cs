@@ -20,6 +20,7 @@ public class GameMaster {
         mPlayerStatusMain = aPlayerStatusMain;
 
         decideTurnOrder();
+        mCamera.shoot(mTurnOrder[0].mComa);
         moveComaToWaitePosition(() => {
             mPlayerStatusMain.sortInOrder(mTurnOrder, () => {
                 mTurnManager = new TurnManager();

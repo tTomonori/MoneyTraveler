@@ -1,6 +1,8 @@
 {
   "name": "スタンダード",
-  "initialMoney": 1000,
+    "initialMoney": 1000,
+    "floor": "tile",
+    "wall": "sky",
   "mass": [
     {"type": "start","position": Vector2(-18,-28)},
     {"type": "land","name":"わん","position": Vector2(-18,-20),"value": 100,"attribute":["west","none"]},

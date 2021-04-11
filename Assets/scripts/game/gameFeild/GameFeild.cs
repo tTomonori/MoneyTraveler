@@ -7,11 +7,18 @@ public class GameFeild : MyBehaviour {
     public MyBehaviour mMassContainer;
     public MyBehaviour mRouteContainer;
     public MyBehaviour mComaContainer;
+    public MyBehaviour mWallContainer;
+    public float mNorth;
+    public float mEast;
+    public float mSouth;
+    public float mWest;
+    public float mHeight;
     void Awake() {
         mMassList = new List<GameMass>();
         mMassContainer = this.createChild<MyBehaviour>("massContainer");
         mRouteContainer = this.createChild<MyBehaviour>("routeContainer");
         mComaContainer = this.createChild<MyBehaviour>("comaContainer");
+        mWallContainer = this.createChild<MyBehaviour>("wallContainer");
     }
     //指定したプレイヤが所有している土地のリストを返す
     public List<LandMass> getOwnedLand(int aPlayerNumber) {
